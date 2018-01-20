@@ -1,6 +1,7 @@
 # springboot-mybatis
-
 DAO 层实现方式及配置（三选一）
+
+
 	一：	使用类实现 DAO 接口（二选一）：
 			1、在启动类中添加对 mapper 包扫描 @MapperScan(" 接口实现类所在的包")（推荐），例：//@MapperScan("com.example.demo.mapper.mapperImpl")
 			2、在每个实现类上面添加注解 @Mapper
