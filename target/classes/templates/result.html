@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:border="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <center>
+        <table bgcolor="aqua" border="1">
+            <tr>
+                <td>ID</td>
+                <td>姓名</td>
+                <td>密码</td>
+                <td>年龄</td>
+                <td>详细信息</td>
+                <td>删除</td>
+            </tr>
+            <tr th:each="user : ${list}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.username}"></td>
+                <td th:text="${user.password}"></td>
+                <td th:text="${user.age}"></td>
+                <td>
+                    <a th:href="@{userInfo?id=}+${user.id}">详细信息</a>
+                </td>
+                <td>
+                    <a th:href="@{deleteUser?id=}+${user.id}">删除</a>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>

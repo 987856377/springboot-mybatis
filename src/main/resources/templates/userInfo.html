@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <table bgcolor="aqua" border="1">
+        <tr>
+            <td>ID</td>
+            <td>姓名</td>
+            <td>密码</td>
+            <td>年龄</td>
+        </tr>
+        <tr th:each="user : ${list}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.password}"></td>
+            <td th:text="${user.age}"></td>
+        </tr>
+    </table>
+    <a th:href="@{getAllUser}">return</a>
+</center>
+</body>
+</html>
