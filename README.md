@@ -1,4 +1,6 @@
 # springboot-mybatis
+
+
 	DAO 层实现方式及配置（三选一）
 
 	一：	使用类实现 DAO 接口（二选一）：
@@ -16,10 +18,10 @@
 
 	整合 MyBatis 分页插件 PageHelper
 
-   在 pom.xml 中添加依赖
-  	<dependency>
-        	<groupId>com.github.pagehelper</groupId>
-        	<artifactId>pagehelper</artifactId>
-        	<version>4.3.6</version>
- 	 </dependency>
-   在 mybatis-config.xml 中配置插件信息，或者在启动类中实现配置
+       在 pom.xml 中添加依赖
+        <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>4.3.6</version>
+         </dependency>
+       在 mybatis-config.xml 中配置插件信息，或者在启动类中实现配置
