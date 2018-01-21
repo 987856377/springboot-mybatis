@@ -3,8 +3,26 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.UserMapper">
 
+    <!--<trim prefix="WHERE"prefixOverrides="AND |OR "> ...</trim>-->
+
+    <!--prefix这里表示where元素会动态前置WHERE,然后prefixOverrides会移除前面无用的and和or-->
+
+    <!--<trim prefix="SET"suffixOverrides=","> ...</trim>-->
+
+    <!--prefix这里表示set元素会动态前置SET,然后suffixOverrides会移除后面无用的逗号","-->
+
     <insert id="addUser" parameterType="User">
-        INSERT INTO user(username,password,age) VALUES(#{username},#{password},#{age})
+        INSERT INTO user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="username != null">username,</if>
+            <if test="password != null">password,</if>
+            <if test="age != null">age,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="username != null">#{username},</if>
+            <if test="password != null">#{password},</if>
+            <if test="age != null">#{age},</if>
+        </trim>
     </insert>
 
     <update id="updateUser" parameterType="User">
