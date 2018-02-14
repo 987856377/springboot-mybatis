@@ -10,8 +10,6 @@ import java.util.List;
 /**
  * Created by daier on 2018/1/18.
  */
-@Service("userService")
-@Transactional
 public interface UserService {
 
     void addUser(User user);
