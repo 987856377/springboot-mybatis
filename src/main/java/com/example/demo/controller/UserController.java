@@ -33,21 +33,14 @@ public class UserController {
     }
 
     @RequestMapping("addUser")
-    public String addUser(HttpServletRequest request,Model model){
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        int age = Integer.parseInt(request.getParameter("age"));
-        User user = new User();
-        user.setUsername(username);
-        user.setPassword(password);
-        user.setAge(age);
+    public String addUser(User user,Model model){
         userService.addUser(user);
         model.addAttribute("list",userService.getAllUser());
         return "result";
     }
 
     @RequestMapping("updateUser")
-    public String updateUser(@RequestParam("id") int id,Model model){
+    public String updateUser(int id,Model model){
         User user = new User();
         user.setId(id);
         user.setPassword("3412341234");
@@ -57,14 +50,14 @@ public class UserController {
     }
 
     @RequestMapping("deleteUser")
-    public String deleteUser(@RequestParam("id") int id, Model model){
+    public String deleteUser(int id, Model model){
         userService.deleteUserById(id);
         model.addAttribute("list",userService.getAllUser());
         return "result";
     }
 
     @RequestMapping("userInfo")
-    public String getUserInfo(@RequestParam("id") int id,Model model){
+    public String getUserInfo(int id,Model model){
         model.addAttribute("list",userService.getUserById(id));
         return "userInfo";
     }
