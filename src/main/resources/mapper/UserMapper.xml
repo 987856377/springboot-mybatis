@@ -84,6 +84,14 @@
             </otherwise>
         </choose>
     </select>
+            
+    <select id="getUserByIdList" resultType="User">
+        SELECT * FROM user
+        where id in
+        <foreach collection="list" item="id" open="(" close=")" separator="," index="i">
+            #{id}
+        </foreach>
+    </select>
 
     <select id="getAllUser" resultType="User">
         SELECT * FROM user
