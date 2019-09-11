@@ -62,14 +62,14 @@
         <where>
             <if test="username != null">
                 username=#{username}    
-                --username like concat('%', #{username}, '%') where 1=1 是多条件拼接时的小技巧， 后面的条件查询就可以都用 and
+                --username like concat('%', #{username}, '%')
             </if>
         </where>
     </select>
     
     <select id="getUserByIdOrName" parameterType="int" resultType="User">
         SELECT * FROM user
-        where 1=1
+        where 1=1       --where 1=1 是多条件拼接时的小技巧， 后面的条件查询就可以都用 and, 不再使用<where>标签, 使用<where>标签时,不能使用where
         <choose>
             <when test="id != null">
                 and id=#{id}
