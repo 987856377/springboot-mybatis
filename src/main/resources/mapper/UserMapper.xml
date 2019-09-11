@@ -66,6 +66,24 @@
             </if>
         </where>
     </select>
+    
+    <select id="getUserByIdOrName" parameterType="int" resultType="User">
+        SELECT * FROM user
+        where 1=1
+        <choose>
+            <when test="id != null">
+                and id=#{id}
+            </when>
+            
+            <when test="username != null and username != ''">
+                and username=#{username}
+            </when>
+
+            <otherwise>
+                and 1=2
+            </otherwise>
+        </choose>
+    </select>
 
     <select id="getAllUser" resultType="User">
         SELECT * FROM user
