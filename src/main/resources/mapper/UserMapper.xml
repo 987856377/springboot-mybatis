@@ -56,6 +56,16 @@
             </if>
         </where>
     </select>
+        
+    <select id="getUserByName" parameterType="String" resultType="User">
+        SELECT * FROM user
+        <where>
+            <if test="username != null">
+                username=#{username}    
+                --username like concat('%', #{username}, '%') where 1=1 是多条件拼接时的小技巧， 后面的条件查询就可以都用 and
+            </if>
+        </where>
+    </select>
 
     <select id="getAllUser" resultType="User">
         SELECT * FROM user
